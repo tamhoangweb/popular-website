@@ -12,8 +12,416 @@
   <link rel="stylesheet" href="./tailwind/tailwind.css">
 </head>
 
-<body>
+<body class="bg-gray-100 dark:bg-main-dark">
+  <nav
+    class="bg-white dark:bg-dark-second h-max md:h-14 w-full shadow flex flex-col md:flex-row items-center justify-center md:justify-between fixed top-0 z-50 border-b dark:border-dark-third">
+    <!-- left nav  -->
+    <div class="flex items-center justify-between w-full md:w-max px-4 py-2">
+      <a href="#" class="mr-2 hidden md:inline-block">
+        <img src="./images/fb-logo.png" alt="Facebook logo" class="w-24 sm:w-20 lg:w-10">
+      </a>
+      <a href="#" class="inline-block md:hidden">
+        <img src="./images/fb-logo-mb.png" alt="" class="w-32">
+      </a>
 
+      <!-- input search and mobile nav -->
+      <div class="flex items-center justify-between space-x-1">
+        <div
+          class="relative bg-gray-100 dark:border-dark-third px-2 py-2 w-10 h-10 sm:w-11 sm:h-11 lg:w-10 lg:h-10 xl:w-max xl:pl-3 xl:pr-8 rounded-full flex items-center justify-center cursor-pointer">
+          <i class='bx bx-search-alt-2 text-xl xl:mr-2 dark:text-dark-txt'></i>
+          <input type="text" placeholder="Search Facebook" class="outline-none bg-transparent hidden xl:inline-block">
+        </div>
+        <!-- mobile nav  -->
+        <div
+          class="text-2xl grid place-items-center md:hidden bg-gray-200 dark:bg-dark-third rounded-full w-10 h-10 cursor-pointer hover:bg-gray-300 dark-text-dark-txt">
+          <i class="bx bxl-messenger"></i>
+        </div>
+        <div
+          class="text-2xl grid place-items-center md:hidden bg-gray-200 dark:bg-dark-third rounded-full w-10 h-10 cursor-pointer hover:bg-gray-300 dark-text-dark-txt">
+          <i class="bx bxs-moon"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- main center nav  -->
+    <ul class="flex w-full lg:w-max items-center justify-center">
+      <li class="w-1/5 md:w-max text-center">
+        <a href="#"
+          class="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block text-blue-500 border-b-4 border-blue-500">
+          <i class='bx bxs-home'></i>
+        </a>
+      </li>
+      <li class="w-1/5 md:w-max text-center">
+        <a href="#"
+          class="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+          <i class='bx bx-movie-play'></i> </a>
+      </li>
+      <li class="w-1/5 md:w-max text-center">
+        <a href="#"
+          class="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+          <i class='bx bx-store'></i> </a>
+      </li>
+      <li class="w-1/5 md:w-max text-center">
+        <a href="#"
+          class="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+          <i class='bx bx-group'></i>
+          <span
+            class="text-xs absolute top-0 bg-red-500 text-white font-semibold rounded-full px-1 text-center right-1/4 md:right-0 xl:right-1/4">9+</span>
+        </a>
+      </li>
+      <li class="w-1/5 md:w-max text-center hidden md:inline-block">
+        <a href="#"
+          class="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+          <i class='bx bx-layout'></i>
+          <span
+            class="text-xs absolute top-0 bg-red-500 text-white font-semibold rounded-full px-1 text-center right-1/4 md:right-0 xl:right-1/4">9+</span>
+        </a>
+      </li>
+      <!-- icon menu ở màn hình nhỏ  -->
+      <li class="w-1/5 md:w-max text-center inline-block md:hidden">
+        <a href="#"
+          class="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative">
+          <i class='bx bx-menu'></i>
+        </a>
+      </li>
+    </ul>
+
+    <!-- right nav  -->
+    <ul class="hidden md:flex mx-4 items-center justify-center">
+      <li class="h-full hidden xl:flex">
+        <a href="#"
+          class="inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1">
+          <img src="./images/aiony50.jpeg" alt="Profile picture" class="rounded-full h-7 w-7 object-cover">
+          <span class="mx-2 font-medium dark:text-dark-txt">Tâm</span>
+        </a>
+      </li>
+      <li>
+        <div
+          class="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300">
+          <i class='bx bx-plus'></i>
+        </div>
+      </li>
+      <li>
+        <div
+          class="text-xl hidden xl:grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300">
+          <i class='bx bxl-messenger'></i>
+        </div>
+      </li>
+      <li>
+        <div
+          class="text-xl grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative">
+          <i class='bx bxs-bell'></i>
+          <span
+            class="text-xs absolute top-0 right-0 bg-red-500 text-white font-semibold rounded-full px-1 text-center">9+</span>
+        </div>
+      </li>
+      <li>
+        <div
+          class="text-xl grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300">
+          <i class='bx bxs-moon'></i>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Body -->
+  <div class="flex justify-center h-screen">
+    <!-- left menu  -->
+    <div class="w-1/5 pt-16 h-full hidden xl:flex flex-col fixed top-0 left-0">
+      <ul class="p-4">
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/aiony.jpeg" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Tâm Hoàng</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/friends.png" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Friends</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/page.png" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/memory.png" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Memories</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/group.png" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Groups</span>
+          </a>
+        </li>
+        <!-- nút see more  -->
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <span class="w-10 h-10 rounded-full grid place-items-center bg-gray-300 dark:bg-dark-second">
+              <i class="bx bx-chevron-down"></i>
+            </span>
+            <span class="font-semibold">See more</span>
+          </a>
+        </li>
+        <div class="border-b border-gray-200 dark:border-dark-third mt-6"></div>
+      </ul>
+      <!-- hết menu trên  -->
+
+      <div class="flex justify-between items-center px-4 h-4 group">
+        <span class="font-semibold text-gray-500 text-lg dark:text-dark-txt cursor-pointer">Your shortcuts</span>
+        <span
+          class="text-blue-500 cursor-pointer hover:bg-gray-200 dark:hover:bg-dark-third p-2 rounded-md hidden group-hover:inline-block">Edit</span>
+      </div>
+      <!-- hết your shorcuts  -->
+      <ul class="p-4">
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/group-img-1.jpg" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Cộng đồng Frontend Việt Nam</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/group-img-2.jpg" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">UI/UX Việt Nam</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/group-img-3.jpg" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Cộng đồng SEO Việt Nam</span>
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <img src="./images/group-img-4.jpg" alt="" class="w-10 h-10 rounded-full object-cover">
+            <span class="font-semibold">Thiền</span>
+          </a>
+        </li>
+        <!-- nút see more  -->
+        <li>
+          <a href="#"
+            class="flex items-center space-x-2 p-2 hover:bg-gray-200 rounded-lg transition-all dark:text-dark-txt dark:hover:bg-dark-third">
+            <span class="w-10 h-10 rounded-full grid place-items-center bg-gray-300 dark:bg-dark-second">
+              <i class="bx bx-chevron-down"></i>
+            </span>
+            <span class="font-semibold">See more</span>
+          </a>
+        </li>
+        <div class="border-b border-gray-200 dark:border-dark-third mt-6"></div>
+      </ul>
+      <!-- hết menu phần dưới (của bên trái) -->
+      <div class="mt-auto p-6 text-sm text-gray-500 dark:text-dark-txt ">
+        <a href="#">Privacy</a>
+        <span>.</span>
+        <a href="#">Termns</a>
+        <span>.</span>
+        <a href="#">Advertising</a>
+        <span>.</span>
+        <a href="#">Cookies</a>
+        <span>.</span>
+        <a href="#">Ad choices</a>
+        <span>.</span>
+        <a href="#">More</a>
+        <span>.</span>
+        <a href="#">Facebook &copy; 2021</a>
+      </div>
+    </div>
+    <!-- main content  -->
+    <div class="w-full lg:w-2/3 xl:w-2/5 pt-32 lg:pt-16 px-2 bg-red-200">
+
+    </div>
+
+    <!-- right menu (friends list) -->
+    <div class="w-1/5 pt-16 h-full hidden xl:block px-4 fixed top-0 right-0 bg-blue-200">
+      <div class="h-full">
+        <div class="flex justify-between items-center px-4 pt-4">
+          <span class="font-semibold text-gray-500 text-lg dark:text-dark-txt">Friend requests</span>
+          <span class="text-blue-500 cursor-pointer hover:bg-gray-200 dark:hover:bg-dark-third p-2 rounded-md">See
+            All</span>
+        </div>
+
+        <div class="p-2">
+          <a href="#"
+            class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third rounded-lg transition-all">
+            <img src="./images/avt.jpg" alt="Friend request picture" class="w-16 h-16 rounded-full object-cover">
+            <div class="flex-1 h-full">
+              <div class="dark:text-dark-txt">
+                <span class="font-semibold">Phương Hằng</span>
+                <span class="float-right">6d</span>
+              </div>
+              <div class="flex space-x-2 mt-2">
+                <div class="w-1/2 bg-blue-500 cursor-pointer py-1 text-center font-semibold text-white rounded-lg">
+                  Confirm
+                </div>
+                <div class="w-1/2 bg-gray-300 cursor-pointer py-1 text-center font-semibold text-black rounded-lg">
+                  Delete
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="border-b border-gray-200 dark:border-dark-third mt-6"></div>
+        <!-- Contacts  -->
+
+        <div class="flex justify-between items-center px-4 pt-4 text-gray-500 dark:text-dark-txt">
+          <span class="font-semibold text-lg">Contacts</span>
+
+          <div class="flex space-x-1">
+            <div
+              class="w-8 h-8 grid place-items-center text-sl hover:bg-gray-200 dark:hover:bg-dark-third rounded-full cursor-pointer">
+              <i class="bx bx-search-alt-2"></i>
+            </div>
+            <div
+              class="w-8 h-8 grid place-items-center text-sl hover:bg-gray-200 dark:hover:bg-dark-third rounded-full cursor-pointer">
+              <i class='bx bx-dots-horizontal-rounded'></i>
+            </div>
+          </div>
+        </div>
+
+
+        <ul class="p-2">
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-3.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Vũ Hùng</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-2.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Lorem ipsum</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-4.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Mỹ Linh</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-5.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Xuân Mỹ</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-4.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Hoàng Lương</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-3.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Xuân My</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-3.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Nhã Phương</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-3.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Hồng Xinh</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-3.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Thoa Phiến</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              class="flex items-center space-x-4 p-2 hover:bg-gray-200 dark:hover:bg-dark-third dark:text-dark-txt rounded-lg cursor-pointer">
+              <div class="relative">
+                <img src="./images/avt-3.jpg" alt="" class="rounded-full object-cover">
+                <span class="bg-green-500 w-3 h-3 rounded-full absolute right-0 top-3/4 border-white border-2"></span>
+              </div>
+              <div>
+                <span>Lại Cung</span>
+              </div>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
