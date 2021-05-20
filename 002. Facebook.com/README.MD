@@ -1,7 +1,5 @@
 # Facebook with tailwindcss 2.1.2
 
-Cảm ơn tác giả của bài hướng dẫn: https://www.youtube.com/watch?v=FzJkNtixGuQ
-
 Darkmode
 
 Lightmode
@@ -927,6 +925,1191 @@ li
       span (Vũ Hùng)
 ```
 
-3. C
+## PHẦN MAIN
 
-### PHẦN MAIN
+Thẻ bao lớn bên ngoài:
+
+```html
+<div
+  class="
+w-full 
+px-2 
+pt-32 
+bg-red-200
+
+lg:w-2/3 
+lg:pt-16 
+xl:w-2/5 
+"
+></div>
+```
+
+Chỉ định độ rộng của toàn bộ phần main:
+
+- Độ rộng 100%: w-full
+
+Cách 2 bên trái phải là
+
+- px-2
+
+```
+padding-left: 0.5rem;
+padding-right: 0.5rem;
+```
+
+Responsive ở breakpoint: 1024px;
+
+- lg:w-2/3 (độ rộng chiếm width: 66.666667%; của thẻ cha)
+- lg:pt-16 (padding-top: 1rem;)
+
+```
+@media (min-width: 1024px) { ... }
+width: 66.666667%;
+padding-top: 1rem;
+```
+
+Responsive ở màn hình breakpoint: 1280px;
+
+- xl:w-2/5
+
+```
+@media (min-width: 1280px) { ... }
+width: 40%;
+```
+
+## PHẦN MAIN - Create Story
+
+![ScreenShot](3.png)
+
+### 1. Thẻ bao bên ngoài toàn bộ các item story bên trong
+
+```html
+<div class="relative flex space-x-2 pt-4"></div>
+```
+
+- relative
+
+```
+position: relative;
+```
+
+- flex và space-x-2
+
+```css
+div {
+  display: flex;
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+```
+
+- pt-4
+
+```css
+/* 1rem = 16px */
+div {
+  padding-top: 1rem;
+}
+```
+
+### 2. Thẻ bao ngoài của 1 item
+
+```html
+<div
+  class="
+  w-1/4 
+  h-44 
+  flex flex-col 
+  
+  rounded-xl 
+  shadow 
+  group 
+  overflow-hidden 
+  cursor-pointer
+  
+  sm:w-1/6 
+  "
+></div>
+```
+
+1. Chỉ định chiều rộng, chiều cao và hiển thị flex theo chiều dọc
+
+- w-1/4
+- h-44
+- flex flex-col
+
+```css
+div {
+  /* w-1/4 */
+  width: 25%;
+
+  /* h-44 */ /* 11rem = 11 * 16px */
+  height: 11rem;
+
+  /* flex flex-col */
+  display: flex;
+  flex-direction: column;
+}
+```
+
+2. Các style khác: bo tròn và đổ bóng
+
+- rounded-xl
+- shadow
+
+```css
+div {
+  /* rounded-xl */
+  border-radius: 0.75rem;
+  /* shadow */
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(
+      --tw-ring-shadow,
+      0 0 #0000
+    ), var(--tw-shadow);
+
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+```
+
+3. Điểm neo cho event hover: group
+
+4. Responsive tại breakpoint sm:w-1/6 là 640px
+
+```css
+/* sm:w-1/6  */
+@media (min-width: 640px) {
+  div {
+    width: 16.666667%;
+  }
+}
+```
+
+### 3. Thẻ bao ngoài thẻ img
+
+```html
+<div class="h-3/5 overflow-hidden"></div>
+```
+
+Chỉ định chiều cao h-3/5. Và ẩn những gì nằm lọt ra ngoài thẻ bao
+
+```css
+.h-3\/5 {
+  height: 60%;
+}
+```
+
+### 4. Thẻ hình profile
+
+```html
+<img
+  src="./images/profile.jpeg"
+  alt=""
+  class="
+  group-hover:transform 
+  group-hover:scale-110 
+  transition-all 
+  duration-700
+  "
+/>
+```
+
+1. Khi hover qua thẻ có class group thì áp dụng 2 style transform và scale
+
+```css
+.group:hover .group-hover\:transform {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(
+      var(--tw-scale-x)
+    )
+    scaleY(var(--tw-scale-y));
+}
+.group:hover .group-hover\:scale-110 {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+}
+```
+
+2. duration-700
+
+```css
+.duration-700 {
+  transition-duration: 700ms;
+}
+```
+
+3. transition-all
+
+```css
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+```
+
+### 5. Thẻ bao ngoài 2 item: Nút + và chữ Create story
+
+```html
+<div
+  class="
+  relative 
+  flex-1 
+  flex items-end justify-center 
+
+  pb-2 
+  text-center 
+  leading-none 
+
+  dark:bg-dark-second 
+  dark:text-dark-txt
+  "
+></div>
+```
+
+1. Dàn xếp sự hiển thị của 2 thẻ con bên trong
+
+```css
+.relative {
+  position: relative;
+}
+.flex {
+  display: flex;
+}
+.flex-1 {
+  flex: 1 1 0%;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+```
+
+2. Các style về kích thước (spacing, typograpy)
+
+```css
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+.text-center {
+  text-align: center;
+}
+.leading-none {
+  line-height: 1;
+}
+```
+
+3. Các style ở darkmode (background, text color)
+
+```css
+.dark:bg-dark-second {
+}
+.dark:text-dark-txt {
+}
+```
+
+### 6. Chữ Create Story
+
+```html
+<span class="font-semibold">
+  Create a <br />
+  story
+</span>
+```
+
+### 7. Nút +
+
+```html
+  <div
+    class="
+    grid place-items-center
+    w-10 h-10
+    rounded-full
+    bg-blue-500
+
+    absolute
+    -top-5 left-1/2
+    transform -translate-x-1/2
+
+    text-white
+    text-2xl
+    border-4 border-white
+
+    dark:border-dark-second
+    "
+  >
+    <i class="bx bx-plus"></i>
+  </div>
+</div>
+```
+
+1. Hình tròn và căn giữa chính nó
+
+```css
+.grid {
+  display: grid;
+}
+.place-items-center {
+  place-items: center;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+/* rgb(59, 130, 246) */
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+```
+
+2. Tách ra 1 layer mới, và căn giữa so với div cha
+
+```css
+.absolute {
+  position: absolute;
+}
+.-top-5 {
+  top: -1.25rem;
+}
+.left-1\/2 {
+  left: 50%;
+}
+.transform {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(
+      var(--tw-scale-x)
+    )
+    scaleY(var(--tw-scale-y));
+}
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+}
+```
+
+3. Các style khác (typograpy, border)
+
+```css
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.border-4 {
+  border-width: 4px;
+}
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgba(255, 255, 255, var(--tw-border-opacity));
+}
+```
+
+4. Darkmode dark:border-dark-second (thuộc tính border)
+
+```css
+dark\:border-dark-second {
+  border-color: #242526;
+}
+```
+
+### 8. Thẻ bao ngoài 1 item story
+
+```html
+<div
+  class="
+relative 
+w-1/4 
+h-44 
+
+rounded-xl 
+overflow-hidden
+cursor-pointer
+
+group
+
+sm:w-1/6 
+"
+></div>
+```
+
+1. Chiều rộng và chiều cao cho 1 item
+
+- w-1/4
+- h-44
+
+```css
+.w-1\/4 {
+  width: 25%;
+}
+.h-44 {
+  height: 11rem;
+}
+```
+
+2. Bo tròn 4 góc và ẩn các phần dư thừa ngoài khung hình
+
+- rounded-xl
+- overflow-hidden
+
+```css
+.overflow-hidden {
+  overflow: hidden;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+```
+
+3. Responsive tại breakpoint 640px
+
+- sm:w-1/6
+
+```css
+@media (min-width: 640px) {
+  .sm\:w-1\/6 {
+    width: 16.666667%;
+  }
+}
+```
+
+### 9. Thẻ img
+
+```html
+<img
+  src="./images/story.jpg"
+  alt=""
+  class="
+  h-full w-full
+  
+  group-hover:transform 
+  group-hover:scale-110 
+  transition-all 
+  duration-300 
+  
+  "
+/>
+```
+
+1. chiều cao chiều rộng chiếm full thẻ cha
+
+2. Apply hiệu ứng khi hover vào thẻ cha bao gồm transform và scale
+
+### 10. Thẻ div là 1 lớp phủ lên thẻ bao item tạo opacity
+
+```html
+<div
+  class="
+absolute 
+top-0 left-0 
+
+w-full h-full 
+bg-black 
+bg-opacity-10
+
+"
+></div>
+```
+
+### 11. Tên bạn bè, là 1 layer nằm lên trên thẻ cha, và được chỉ định vị trí bottom
+
+```html
+<span
+  class="
+absolute 
+bottom-0 left-2 
+pb-2 
+
+font-semibold 
+text-white
+"
+  >Gió Đông</span
+>
+```
+
+### 12. Avatar: hình tròn nằm góc trên bên trái
+
+```html
+<div
+  class="
+  absolute 
+  top-2 left-2 
+  
+  w-10 h-10 
+  rounded-full 
+  border-4 border-blue-500
+  
+  overflow-hidden 
+  "
+>
+  <img src="./images/avt-2.jpg" alt="" />
+</div>
+```
+
+### 13. 2 items story cuối sẽ ẩn khi màn hình nhỏ
+
+1. Điểm breakpoint 640px: sm:inline-block
+
+```css
+@media (min-width: 640px) {
+}
+```
+
+### 14. Nút next
+
+```html
+<div
+  class="
+  absolute 
+  -right-6 top-1/2 
+  transform -translate-y-1/2 
+  
+  text-2xl 
+  text-gray-500 
+  bg-white 
+  
+  w-12 h-12 
+  border border-gray-200 
+  rounded-full 
+  shadow 
+  
+  cursor-pointer 
+  
+  hover:bg-gray-100 
+
+  hidden 
+  lg:grid 
+  place-items-center 
+  
+  dark:bg-dark-third 
+  dark:border-dark-third 
+  dark:text-dark-txt
+  "
+>
+  <i class="bx bx-right-arrow-alt"></i>
+</div>
+```
+
+1. Là 1 lớp layer nằm trên thẻ cha (relative)
+
+2. Vị trí
+
+```css
+.top-1\/2 {
+  top: 50%;
+}
+.-right-6 {
+  right: -1.5rem;
+}
+```
+
+3. Typography (font size, color, bg color)
+
+4. Kích thước (w, h)
+
+```css
+.w-12 {
+  width: 3rem;
+}
+.h-12 {
+  height: 3rem;
+}
+```
+
+5. Box (border, shadow)
+
+6. Mặc định ẩn
+
+7. Hiển thị khi màn hình từ breakpoint 1024px, và căn giữa chính nó.
+
+8. Hiệu ứng khi hover (đổi màu background)
+
+```css
+.lg\:grid {
+  display: grid;
+}
+.place-items-center {
+  place-items: center;
+}
+```
+
+9. Darkmode các thuộc tính background, border, text color
+
+## What's on your mind: FORM
+
+### 1. Thẻ bao ngoài cùng của form
+
+```html
+<div
+  class="
+px-4 mt-4 
+rounded-lg 
+
+bg-white 
+shadow 
+
+dark:bg-dark-second
+"
+></div>
+```
+
+1. Box model: padding theo trục x, margin top, bo góc lớn
+
+```css
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+```
+
+2. Màu nền
+
+3. Đổ bóng
+
+```css
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(
+      --tw-ring-shadow,
+      0 0 #0000
+    ), var(--tw-shadow);
+}
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+```
+
+4. Darkmode: Đổi màu nền sang màu bg-dark-second
+
+### 2. Thẻ bao phần 1
+
+![Screenshot](4.png)
+
+```html
+<div
+  class="
+flex space-x-4
+p-2 
+
+border-b border-gray-300 
+dark:border-dark-third 
+"
+></div>
+```
+
+1. Cài đặt hiển thị flex
+
+2. Khoảng cách trục x của các item
+
+```css
+.space-x-4 {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+/* kết quả */
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  /* margin-left: 16px;
+    margin-right: 0px*/
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+```
+
+3. Đường viền
+
+4. Darkmod, đổi màu border
+
+#### 1. Thẻ hình avatar
+
+```html
+<img
+  src="./images/aiony50.jpeg"
+  alt=" "
+  class="
+  w-10 h-10 
+  rounded-full 
+  
+  object-cover
+  "
+/>
+```
+
+1. Kích thước và hình tròn
+
+2. Hình fit vừa đủ không bị bóp méo
+
+#### 2. Dòng chữ nằm bên trong 1 thẻ div
+
+```html
+<div
+  class="
+  flex items-center justify-start 
+  flex-1 
+  pl-4 
+  
+  text-gray-500 text-lg 
+  bg-gray-100 
+  
+  rounded-full 
+  cursor-pointer 
+  
+  dark:text-dark-txt
+  dark:bg-dark-third 
+  "
+>
+  <span> What's on your mind, Tâm? </span>
+</div>
+```
+
+1. Hiển thị kiểu flex, content sát bên trái, căn giữa trục y
+
+2. Typography (màu chữ, màu nền, kích thước chữ)
+
+3. Bo tròn thanh div
+
+```css
+.rounded-full {
+  border-radius: 9999px;
+}
+```
+
+4. Con trỏ chuột hình bàn tay
+
+5. Darkmode: màu nền, màu chữ
+
+### 3. Thẻ bao phần 2
+
+![Screenshot](5.png)
+
+```html
+<div class="p-2 flex"></div>
+```
+
+Các item bên trong hiển thị theo flex thẻ bao này.
+
+#### 1. Thẻ bao 1 item
+
+```html
+<div
+  class="
+  flex space-x-2 justify-center items-center 
+  w-1/3 
+  py-2 
+  rounded-lg 
+  
+  text-xl 
+  text-red-500
+  
+  cursor-pointer 
+  hover:bg-gray-100 
+  
+  sm:text-3xl 
+  
+  dark:hover:bg-dark-third 
+  "
+></div>
+```
+
+1. Định kiểu hiển thị flex, khoảng cách giữa các item, căn giữa các item theo cả 2 trục x, y
+
+2. Box model: padding theo trục y, bo tròn góc
+
+```css
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+```
+
+3. Typography: màu chữ, và kích thước
+
+```css
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+```
+
+4. Khi hover qua thì đổi màu nền
+
+5. Breakpoint:
+
+```css
+@media (min-width: 640px) {
+  sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+```
+
+#### 2. items: icon và chữ
+
+```html
+<i class="bx bxs-video-plus"></i>
+<span
+  class="
+font-semibold 
+text-xs 
+text-gray-500 
+
+sm:text-sm 
+dark:text-dark-txt
+"
+  >Live video</span
+>
+```
+
+1. Typography: in đậm chữ, kích thước chữ, màu chữ
+
+2. Khi màn hình breakpoint 640 trở lên thì đổi kích thước chữ
+
+```css
+@media (min-width: 640px) {
+  .sm\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+```
+
+3. Darkmode: đổi màu chữ
+
+## Create Room
+
+### 1. Thẻ bao ngoài cùng
+
+```html
+<div
+  class="
+  p-4 mt-4 
+  shadow 
+  rounded-lg 
+  bg-white 
+  
+  overflow-hidden
+  
+  dark:bg-dark-second
+  "
+></div>
+```
+
+1. Khoảng cách padding và margin top
+
+```css
+.p-4 {
+  padding: 1rem;
+}
+```
+
+2. Đổ bóng và bo góc
+
+3. Màu nền màu trắng
+
+4. Ẩn những phần nằm ngoài khung nhìn
+
+5. Darkmode: đổi màu nền
+
+### 2. Thẻ bao ngoài quản lý flex cho tất cả item con bên trong
+
+```html
+<div class="flex space-x-4 relative"></div>
+```
+
+### 3. Thẻ bao ngoài nút create room
+
+![Screenshot](6.png)
+
+```html
+<div
+  class="
+  flex 
+  space-x-2 
+  items-center 
+  justify-center 
+  
+  w-1/2 
+  border-2 border-blue-200 
+  rounded-full 
+  
+  cursor-pointer
+  
+  lg:w-3/12 
+  
+  dark:border-blue-700 
+  "
+></div>
+```
+
+1. Các item con bên trong hiển thị flex, có khoảng cách space-x-2, căn giữa trục xy
+
+2. Kích thước 50% nếu màn hình nhỏ
+
+3. Nếu màn hình lớn lg (min-width:1024px) thì độ rộng chiếm 3/12
+
+4. Đường viền và bo tròn góc
+
+5. Darkmode: đổi màu đường viền border
+
+#### 1. icon video plus
+
+```html
+<i
+  class="
+bx bxs-video-plus 
+text-2xl 
+text-purple-500
+"
+></i>
+```
+
+1. Kích thước chữ 2xl
+
+2. Màu chữ purple-500
+
+#### 2. Chữ Create Room
+
+```html
+<span
+  class="
+text-sm 
+text-blue-500
+font-semibold 
+"
+  >Create Room</span
+>
+```
+
+1. Kích thước chữ -sm
+
+2. Màu chữ -blue-500
+
+3. Font chữ in đậm
+
+### 4. Thẻ bao ngoài avatar bạn bè online
+
+![Screenshot](7.png)
+
+```html
+<div class="relative cursor-pointer"></div>
+```
+
+#### 1. Hình avatar
+
+```html
+<img src="./images/avt-3.jpg" alt="" class="rounded-full" />
+```
+
+#### 2. Nút tròn màu xanh (online)
+
+```html
+<span
+  class="
+  absolute right-0 top-3/4 
+  
+  w-3 h-3 
+  rounded-full 
+  bg-green-500 
+  
+  border-white border-2
+  "
+></span>
+```
+
+1. Tạo layer mới, chỉ định vị trí
+
+2. Độ rộng, hình tròn, màu xanh
+
+3. Đường viền màu trắng
+
+## New Feed
+
+### 1. Thẻ bao ngoài
+
+### 2. Thẻ bao ngoài Post 1
+
+```html
+<div
+  class="
+  mt-4 
+  rounded-lg
+  shadow 
+  bg-white 
+  
+  dark:bg-dark-second dark:text-dark-txt 
+  "
+></div>
+```
+
+1. margin top 1rem
+
+2. Bo tròn 4 góc 0.5rem
+
+3. Đổ bóng
+
+4. Nền trắng
+
+5. Darkmode: đổi màu nền và màu chữ
+
+### 3. Phần tác giả: Div flex bao 2 item: avatar và dấu ...
+
+![Screenshot](8.png)
+
+```html
+<div
+  class="
+flex 
+items-center justify-between 
+px-4 py-2
+"
+></div>
+```
+
+1. 2 item con sẽ dàn sang 2 bên trái phải
+
+2. Padding 2 trục xy
+
+#### 1. Div flex bao 2 item: 1 bên là avatar và dấu tròn online, 1 bên là User name và thời gian 38m
+
+```html
+<div class="flex space-x-2 items-center"></div>
+```
+
+1. 2 bên item có khoảng cách space-x-2
+
+2. 2 item đều canh giữa theo trục y
+
+#### 2. Div relative bao ngoài 2 item: hình avatar và dấu tròn online
+
+```html
+<div class="relative"></div>
+```
+
+#### 3. Thẻ image
+
+```html
+<img
+  src="./images/avt-2.jpg"
+  alt=""
+  class="w-10 h-10 rounded-full object-cover"
+/>
+```
+
+#### 4. Dấu tròn online
+
+```html
+<span
+  class="
+absolute right-0 top-3/4 
+w-3 h-3 
+
+bg-green-500 
+rounded-full 
+border-white border-2
+"
+></span>
+```
+
+#### 5. Class của Username và 38m
+
+```html
+<div>
+  <div class="font-semibold">John Seven</div>
+  <span class="text-sm text-gray-500">38m</span>
+</div>
+```
+
+#### 6. Class cho dấu ... (more)
+
+```html
+<div
+  class="
+  w-8 h-8 
+  grid place-items-center 
+  text-xl text-gray-500 
+  rounded-full cursor-pointer
+  
+  hover:bg-gray-200 
+  
+  dark:text-dark-txt dark:hover:bg-dark-third 
+  "
+>
+  <i class="bx bx-dots-horizontal-rounded"></i>
+</div>
+```
+
+1. Kích thước 2rem
+
+2. Căn giữa chính nó
+
+3. Font chữ: 1.25rem/1.75rem
+
+4. Bo tròn 9999px
+
+### 4. Phần Nội dung bài post
+
+![Screenshot](9.png)
+
+#### 1. Nội dung bằng chữ
+
+```html
+<div class="text-justify px-4 py-2"></div>
+```
+
+```css
+.text-justify {
+  text-align: justify;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+```
+
+1. Kích thước chữ
+   - Font size: 16px
+   - Line height: 24px
+
+#### 2. Nội dung bằng hình
+
+Cảm ơn tác giả của bài hướng dẫn: https://www.youtube.com/watch?v=FzJkNtixGuQ
