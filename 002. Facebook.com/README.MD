@@ -49,7 +49,7 @@ Nội dung
    terminal
 
 ```
-NODE_ENV=development
+NODE_ENV='development'
 ```
 
 6. build tailwind
